@@ -1,0 +1,7 @@
+or2yw -i ./Dish_CLD.json -o Dish_CLD.pdf -ot pdf -t parallel
+
+or2yw -i ./MenuItem_CLD.json -o MenuItem_CLD.pdf -ot pdf -t parallel
+
+or2yw -i ./MenuPage_CLD.json -o MenuPage_CLD.pdf -ot pdf -t parallel
+
+or2yw -i ./Menu_CLD.json -o Menu_CLD.pdf -ot pdf -t parallel

@@ -1,0 +1,5 @@
+$ yw graph workflow_final.py > workflow_final.gv
+$ dot -Tpdf workflow_final.gv -o workflow_final.pdf
+
+# YesWorkflow Editor Service
+$ java -jar ./yw-editor-app-0.2.1.2-SNAPSHOT.jar

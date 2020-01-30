@@ -1,0 +1,74 @@
+[
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column xpos using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "xpos",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column ypos using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ypos",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column created_at using expression grel:value.replace(/\\sUTC$/,'')",
+    "engineConfig": {
+      "facets": [
+        {
+          "name": "created_at",
+          "columnName": "created_at",
+          "query": "^*UTC",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false,
+          "type": "text"
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "created_at",
+    "expression": "grel:value.replace(/\\sUTC$/,'')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column updated_at using expression grel:value.replace(/\\sUTC$/,'')",
+    "engineConfig": {
+      "facets": [
+        {
+          "name": "updated_at",
+          "columnName": "updated_at",
+          "query": "^*UTC",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false,
+          "type": "text"
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "updated_at",
+    "expression": "grel:value.replace(/\\sUTC$/,'')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+]

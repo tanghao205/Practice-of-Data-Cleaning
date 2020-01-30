@@ -1,0 +1,204 @@
+
+/* Start of top-level graph */
+digraph Workflow {
+rankdir=LR
+
+/* Title for graph */
+fontname=Helvetica; fontsize=18; labelloc=t
+label=Data_Cleaning_Project
+
+/* Start of double cluster for drawing box around nodes in workflow */
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; penwidth=0
+
+/* Style for nodes representing atomic programs in workflow */
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing atomic programs in workflow */
+Dish_csv_Cleaning [shape=record rankdir=LR label="{{<f0> Dish_csv_Cleaning |<f1> Clean Dish.csv in OpenRefine}}"];
+MenuItem_csv_Cleaning [shape=record rankdir=LR label="{{<f0> MenuItem_csv_Cleaning |<f1> Clean MenuItem.csv in OpenRefine}}"];
+MenuPage_csv_Cleaning [shape=record rankdir=LR label="{{<f0> MenuPage_csv_Cleaning |<f1> Clean MenuPage.csv in OpenRefine}}"];
+Menu_csv_Cleaning [shape=record rankdir=LR label="{{<f0> Menu_csv_Cleaning |<f1> Use Clean Menu.csv in OpenRefine}}"];
+OpenRefine_clean_workflow_generateion [shape=record rankdir=LR label="{{<f0> OpenRefine_clean_workflow_generateion |<f1> Generate workflow by YesWorkFlow (or2ywtool)}}"];
+LoadCleanedData [shape=record rankdir=LR label="{{<f0> LoadCleanedData |<f1> Load cleaned data into Sqlite DB with 4 tables (Dish,MenuItem,MenuPage,Menu)}}"];
+IDCheck [shape=record rankdir=LR label="{{<f0> IDCheck |<f1> Apply SQL in Inclusion Dependency Check}}"];
+Dish_FD_OtherICCheck [shape=record rankdir=LR label="{{<f0> Dish_FD_OtherICCheck |<f1> Apply SQL in Single Table}}"];
+MenuItem_FD_OtherICCheck [shape=record rankdir=LR label="{{<f0> MenuItem_FD_OtherICCheck |<f1> Apply SQL in Single Table}}"];
+MenuPage_FD_OtherICCheck [shape=record rankdir=LR label="{{<f0> MenuPage_FD_OtherICCheck |<f1> Apply SQL in Single Table}}"];
+"Menu_FD/OtherICCheck" [shape=record rankdir=LR label="{{<f0> Menu_FD/OtherICCheck |<f1> Apply SQL in Single Table}}"];
+NewDataGeneration [shape=record rankdir=LR label="{{<f0> NewDataGeneration |<f1> Apply FD_IC_check result and ID_check result}}"];
+
+/* Style for nodes representing non-parameter data channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes for non-parameter data channels in workflow */
+"Dish.csv" [shape=record rankdir=LR label="{{<f0> Dish.csv |<f1> /wd/Dish.csv}}"];
+"MenuItem.csv" [shape=record rankdir=LR label="{{<f0> MenuItem.csv |<f1> /wd/MenuItem.csv}}"];
+"MenuPage.csv" [shape=record rankdir=LR label="{{<f0> MenuPage.csv |<f1> /wd/data/MenuPage.csv}}"];
+"Menu.csv" [shape=record rankdir=LR label="{{<f0> Menu.csv |<f1> /wd/Dish.csv}}"];
+"Dish_CLD.json" [shape=record rankdir=LR label="{{<f0> Dish_CLD.json |<f1> /wd/Dish_CLD.json}}"];
+"MenuItem_CLD.json" [shape=record rankdir=LR label="{{<f0> MenuItem_CLD.json |<f1> /wd/MenuItem_CLD.json}}"];
+"MenuPage_CLD.json" [shape=record rankdir=LR label="{{<f0> MenuPage_CLD.json |<f1> /wd/MenuPage_CLD.json}}"];
+"Menu_CLD.json" [shape=record rankdir=LR label="{{<f0> Menu_CLD.json |<f1> /wd/Menu_CLD.json}}"];
+"Dish_CLD.csv" [shape=record rankdir=LR label="{{<f0> Dish_CLD.csv |<f1> /wd/Dish_CLD.csv}}"];
+"MenuItem_CLD.csv" [shape=record rankdir=LR label="{{<f0> MenuItem_CLD.csv |<f1> /wd/MenuItem_CLD.csv}}"];
+"MenuPage_CLD.csv" [shape=record rankdir=LR label="{{<f0> MenuPage_CLD.csv |<f1> /wd/MenuPage_CLD.csv}}"];
+"Menu_CLD.csv" [shape=record rankdir=LR label="{{<f0> Menu_CLD.csv |<f1> /wd/Menu_CLD.csv}}"];
+"dish_in_NYPL.db" [shape=record rankdir=LR label="{{<f0> dish_in_NYPL.db |<f1> /wd/NYPL.db}}"];
+"menuitem_in_NYPL.db" [shape=record rankdir=LR label="{{<f0> menuitem_in_NYPL.db |<f1> /wd/NYPL.db}}"];
+"menupage_in_NYPL.db" [shape=record rankdir=LR label="{{<f0> menupage_in_NYPL.db |<f1> /wd/NYPL.db}}"];
+"menu_in_NYPL.db" [shape=record rankdir=LR label="{{<f0> menu_in_NYPL.db |<f1> /wd/NYPL.db}}"];
+Dish_Output [shape=record rankdir=LR label="{{<f0> Dish_Output |<f1> /wd/dish_id_check.csv}}"];
+MenuItem_Output [shape=record rankdir=LR label="{{<f0> MenuItem_Output |<f1> /wd/menuitem_id_check.csv}}"];
+MenuPage_Output [shape=record rankdir=LR label="{{<f0> MenuPage_Output |<f1> /wd/menupage_id_check.csv}}"];
+Menu_Output [shape=record rankdir=LR label="{{<f0> Menu_Output |<f1> /wd/menu_id_check.csv}}"];
+"Dish_CLD.pdf" [shape=record rankdir=LR label="{{<f0> Dish_CLD.pdf |<f1> /wd/Dish_CLD.pdf}}"];
+"MenuItem_CLD.pdf" [shape=record rankdir=LR label="{{<f0> MenuItem_CLD.pdf |<f1> /wd/MenuItem_CLD.pdf}}"];
+"MenuPage_CLD.pdf" [shape=record rankdir=LR label="{{<f0> MenuPage_CLD.pdf |<f1> /wd/MenuPage_CLD.pdf}}"];
+"Menu_CLD.pdf" [shape=record rankdir=LR label="{{<f0> Menu_CLD.pdf |<f1> /wd/Menu_CLD.pdf}}"];
+Dish_FD_IC_Output [shape=record rankdir=LR label="{{<f0> Dish_FD_IC_Output |<f1> /wd/dish_fd_ic.csv}}"];
+MenuItem_FD_IC_Output [shape=record rankdir=LR label="{{<f0> MenuItem_FD_IC_Output |<f1> /wd/menuitem_fd_ic.csv}}"];
+MenuPage_FD_IC_Output [shape=record rankdir=LR label="{{<f0> MenuPage_FD_IC_Output |<f1> /wd/menupage_fd_ic.csv}}"];
+Menu_FD_IC_Output [shape=record rankdir=LR label="{{<f0> Menu_FD_IC_Output |<f1> /wd/menu_fd_ic.csv}}"];
+Dish_New [shape=record rankdir=LR label="{{<f0> Dish_New |<f1> /wd/dish_new.csv}}"];
+MenuItem_New [shape=record rankdir=LR label="{{<f0> MenuItem_New |<f1> /wd/menuitem_new.csv}}"];
+MenuPage_New [shape=record rankdir=LR label="{{<f0> MenuPage_New |<f1> /wd/menupage_new.csv}}"];
+Menu_New [shape=record rankdir=LR label="{{<f0> Menu_New |<f1> /wd/menu_new.csv}}"];
+
+/* Style for nodes representing parameter channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing parameter channels in workflow */
+FD_IC_Check_Reference
+ID_check_reference
+
+/* Edges representing connections between programs and channels */
+Dish_csv_Cleaning -> "Dish_CLD.csv"
+Dish_csv_Cleaning -> "Dish_CLD.json"
+"Dish.csv" -> Dish_csv_Cleaning
+DishCleaningSequence -> Dish_csv_Cleaning
+MenuItem_csv_Cleaning -> "MenuItem_CLD.csv"
+MenuItem_csv_Cleaning -> "MenuItem_CLD.json"
+"MenuItem.csv" -> MenuItem_csv_Cleaning
+MenuItemCleaningSequence -> MenuItem_csv_Cleaning
+MenuPage_csv_Cleaning -> "MenuPage_CLD.csv"
+MenuPage_csv_Cleaning -> "MenuPage_CLD.json"
+"MenuPage.csv" -> MenuPage_csv_Cleaning
+MenuPageCleaningSequence -> MenuPage_csv_Cleaning
+Menu_csv_Cleaning -> "Menu_CLD.csv"
+Menu_csv_Cleaning -> "Menu_CLD.json"
+"Menu.csv" -> Menu_csv_Cleaning
+MenuCleaningSequence -> Menu_csv_Cleaning
+OpenRefine_clean_workflow_generateion -> "Dish_CLD.pdf"
+OpenRefine_clean_workflow_generateion -> "MenuItem_CLD.pdf"
+OpenRefine_clean_workflow_generateion -> "MenuPage_CLD.pdf"
+OpenRefine_clean_workflow_generateion -> "Menu_CLD.pdf"
+"Dish_CLD.json" -> OpenRefine_clean_workflow_generateion
+"MenuItem_CLD.json" -> OpenRefine_clean_workflow_generateion
+"MenuPage_CLD.json" -> OpenRefine_clean_workflow_generateion
+"Menu_CLD.json" -> OpenRefine_clean_workflow_generateion
+LoadCleanedData -> "dish_in_NYPL.db"
+LoadCleanedData -> "menuitem_in_NYPL.db"
+LoadCleanedData -> "menupage_in_NYPL.db"
+LoadCleanedData -> "menu_in_NYPL.db"
+"Dish_CLD.csv" -> LoadCleanedData
+"MenuItem_CLD.csv" -> LoadCleanedData
+"MenuPage_CLD.csv" -> LoadCleanedData
+"Menu_CLD.csv" -> LoadCleanedData
+Database_Schema_Information -> LoadCleanedData
+IDCheck -> Dish_Output
+IDCheck -> MenuItem_Output
+IDCheck -> MenuPage_Output
+IDCheck -> Menu_Output
+IDCheck -> ID_check_reference
+"dish_in_NYPL.db" -> IDCheck
+"menuitem_in_NYPL.db" -> IDCheck
+"menupage_in_NYPL.db" -> IDCheck
+"menu_in_NYPL.db" -> IDCheck
+InclusionDependencyIC -> IDCheck
+Dish_FD_OtherICCheck -> Dish_FD_IC_Output
+Dish_FD_OtherICCheck -> FD_IC_Check_Reference
+"dish_in_NYPL.db" -> Dish_FD_OtherICCheck
+"FDAndOtherIC(Dish)" -> Dish_FD_OtherICCheck
+MenuItem_FD_OtherICCheck -> MenuItem_FD_IC_Output
+MenuItem_FD_OtherICCheck -> FD_IC_Check_Reference
+"menuitem_in_NYPL.db" -> MenuItem_FD_OtherICCheck
+"FDyAndOtherIC(MenuItem)" -> MenuItem_FD_OtherICCheck
+MenuPage_FD_OtherICCheck -> MenuPage_FD_IC_Output
+MenuPage_FD_OtherICCheck -> FD_IC_Check_Reference
+"menupage_in_NYPL.db" -> MenuPage_FD_OtherICCheck
+"FDyAndOtherIC(MenuPage)" -> MenuPage_FD_OtherICCheck
+"Menu_FD/OtherICCheck" -> Menu_FD_IC_Output
+"Menu_FD/OtherICCheck" -> FD_IC_Check_Reference
+"menu_in_NYPL.db" -> "Menu_FD/OtherICCheck"
+"FDyAndOtherIC(Menu)" -> "Menu_FD/OtherICCheck"
+NewDataGeneration -> Dish_New
+NewDataGeneration -> MenuItem_New
+NewDataGeneration -> MenuPage_New
+NewDataGeneration -> Menu_New
+"dish_in_NYPL.db" -> NewDataGeneration
+"menuitem_in_NYPL.db" -> NewDataGeneration
+"menupage_in_NYPL.db" -> NewDataGeneration
+"menu_in_NYPL.db" -> NewDataGeneration
+FD_IC_Check_Reference -> NewDataGeneration
+ID_check_reference -> NewDataGeneration
+
+/* End of double cluster for drawing box around nodes in workflow */
+}}
+
+/* Style for nodes representing workflow input ports */
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+
+/* Nodes representing workflow input ports */
+"Dish.csv_input_port" [label=""]
+"MenuItem.csv_input_port" [label=""]
+"MenuPage.csv_input_port" [label=""]
+"Menu.csv_input_port" [label=""]
+
+/* Style for nodes representing workflow output ports */
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+
+/* Nodes representing workflow output ports */
+Dish_Output_output_port [label=""]
+MenuItem_Output_output_port [label=""]
+MenuPage_Output_output_port [label=""]
+Menu_Output_output_port [label=""]
+"Dish_CLD.pdf_output_port" [label=""]
+"MenuItem_CLD.pdf_output_port" [label=""]
+"MenuPage_CLD.pdf_output_port" [label=""]
+"Menu_CLD.pdf_output_port" [label=""]
+Dish_FD_IC_Output_output_port [label=""]
+MenuItem_FD_IC_Output_output_port [label=""]
+MenuPage_FD_IC_Output_output_port [label=""]
+Menu_FD_IC_Output_output_port [label=""]
+Dish_New_output_port [label=""]
+MenuItem_New_output_port [label=""]
+MenuPage_New_output_port [label=""]
+Menu_New_output_port [label=""]
+
+/* Edges from input ports to channels */
+"Dish.csv_input_port" -> "Dish.csv"
+"MenuItem.csv_input_port" -> "MenuItem.csv"
+"MenuPage.csv_input_port" -> "MenuPage.csv"
+"Menu.csv_input_port" -> "Menu.csv"
+
+/* Edges from channels to output ports */
+Dish_Output -> Dish_Output_output_port
+MenuItem_Output -> MenuItem_Output_output_port
+MenuPage_Output -> MenuPage_Output_output_port
+Menu_Output -> Menu_Output_output_port
+"Dish_CLD.pdf" -> "Dish_CLD.pdf_output_port"
+"MenuItem_CLD.pdf" -> "MenuItem_CLD.pdf_output_port"
+"MenuPage_CLD.pdf" -> "MenuPage_CLD.pdf_output_port"
+"Menu_CLD.pdf" -> "Menu_CLD.pdf_output_port"
+Dish_FD_IC_Output -> Dish_FD_IC_Output_output_port
+MenuItem_FD_IC_Output -> MenuItem_FD_IC_Output_output_port
+MenuPage_FD_IC_Output -> MenuPage_FD_IC_Output_output_port
+Menu_FD_IC_Output -> Menu_FD_IC_Output_output_port
+Dish_New -> Dish_New_output_port
+MenuItem_New -> MenuItem_New_output_port
+MenuPage_New -> MenuPage_New_output_port
+Menu_New -> Menu_New_output_port
+
+/* End of top-level graph */
+}

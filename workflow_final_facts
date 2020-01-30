@@ -1,0 +1,852 @@
+
+% FACT: program(program_id, program_name, qualified_program_name, begin_annotation_id, end_annotation_id).
+program(1, 'Data_Cleaning_Project', 'Data_Cleaning_Project', 1, 200).
+program(2, 'Dish_csv_Cleaning', 'Data_Cleaning_Project.Dish_csv_Cleaning', 11, 20).
+program(3, 'MenuItem_csv_Cleaning', 'Data_Cleaning_Project.MenuItem_csv_Cleaning', 21, 30).
+program(4, 'MenuPage_csv_Cleaning', 'Data_Cleaning_Project.MenuPage_csv_Cleaning', 31, 40).
+program(5, 'Menu_csv_Cleaning', 'Data_Cleaning_Project.Menu_csv_Cleaning', 41, 50).
+program(6, 'OpenRefine_clean_workflow_generateion', 'Data_Cleaning_Project.OpenRefine_clean_workflow_generateion', 51, 69).
+program(7, 'LoadCleanedData', 'Data_Cleaning_Project.LoadCleanedData', 70, 89).
+program(8, 'IDCheck', 'Data_Cleaning_Project.IDCheck', 90, 110).
+program(9, 'Dish_FD_OtherICCheck', 'Data_Cleaning_Project.Dish_FD_OtherICCheck', 111, 119).
+program(10, 'MenuItem_FD_OtherICCheck', 'Data_Cleaning_Project.MenuItem_FD_OtherICCheck', 120, 128).
+program(11, 'MenuPage_FD_OtherICCheck', 'Data_Cleaning_Project.MenuPage_FD_OtherICCheck', 129, 137).
+program(12, 'Menu_FD/OtherICCheck', 'Data_Cleaning_Project.Menu_FD/OtherICCheck', 138, 146).
+program(13, 'NewDataGeneration', 'Data_Cleaning_Project.NewDataGeneration', 147, 167).
+
+% FACT: workflow(program_id).
+workflow(1).
+
+% FACT: function(program_id).
+
+% FACT: has_subprogram(program_id, subprogram_id).
+has_subprogram(1, 2).
+has_subprogram(1, 3).
+has_subprogram(1, 4).
+has_subprogram(1, 5).
+has_subprogram(1, 6).
+has_subprogram(1, 7).
+has_subprogram(1, 8).
+has_subprogram(1, 9).
+has_subprogram(1, 10).
+has_subprogram(1, 11).
+has_subprogram(1, 12).
+has_subprogram(1, 13).
+
+% FACT: port(port_id, port_type, port_name, qualified_port_name, port_annotation_id, data_id).
+port(1, 'in', 'Dish.csv', 'Data_Cleaning_Project<-Dish.csv', 3, 1).
+port(2, 'in', 'MenuItem.csv', 'Data_Cleaning_Project<-MenuItem.csv', 5, 2).
+port(3, 'in', 'MenuPage.csv', 'Data_Cleaning_Project<-MenuPage.csv', 7, 3).
+port(4, 'in', 'Menu.csv', 'Data_Cleaning_Project<-Menu.csv', 9, 4).
+port(74, 'out', 'Dish_Output', 'Data_Cleaning_Project->Dish_Output', 168, 49).
+port(75, 'out', 'MenuItem_Output', 'Data_Cleaning_Project->MenuItem_Output', 170, 50).
+port(76, 'out', 'MenuPage_Output', 'Data_Cleaning_Project->MenuPage_Output', 172, 51).
+port(77, 'out', 'Menu_Output', 'Data_Cleaning_Project->Menu_Output', 174, 52).
+port(78, 'out', 'Dish_CLD.pdf', 'Data_Cleaning_Project->Dish_CLD.pdf', 176, 53).
+port(79, 'out', 'MenuItem_CLD.pdf', 'Data_Cleaning_Project->MenuItem_CLD.pdf', 178, 54).
+port(80, 'out', 'MenuPage_CLD.pdf', 'Data_Cleaning_Project->MenuPage_CLD.pdf', 180, 55).
+port(81, 'out', 'Menu_CLD.pdf', 'Data_Cleaning_Project->Menu_CLD.pdf', 182, 56).
+port(82, 'out', 'Dish_FD_IC_Output', 'Data_Cleaning_Project->Dish_FD_IC_Output', 184, 57).
+port(83, 'out', 'MenuItem_FD_IC_Output', 'Data_Cleaning_Project->MenuItem_FD_IC_Output', 186, 58).
+port(84, 'out', 'MenuPage_FD_IC_Output', 'Data_Cleaning_Project->MenuPage_FD_IC_Output', 188, 59).
+port(85, 'out', 'Menu_FD_IC_Output', 'Data_Cleaning_Project->Menu_FD_IC_Output', 190, 60).
+port(86, 'out', 'Dish_New', 'Data_Cleaning_Project->Dish_New', 192, 61).
+port(87, 'out', 'MenuItem_New', 'Data_Cleaning_Project->MenuItem_New', 194, 62).
+port(88, 'out', 'MenuPage_New', 'Data_Cleaning_Project->MenuPage_New', 196, 63).
+port(89, 'out', 'Menu_New', 'Data_Cleaning_Project->Menu_New', 198, 64).
+port(5, 'in', 'Dish.csv', 'Data_Cleaning_Project.Dish_csv_Cleaning<-Dish.csv', 13, 5).
+port(6, 'param', 'DishCleaningSequence', 'Data_Cleaning_Project.Dish_csv_Cleaning<-DishCleaningSequence', 15, 6).
+port(7, 'out', 'Dish_CLD.csv', 'Data_Cleaning_Project.Dish_csv_Cleaning->Dish_CLD.csv', 16, 7).
+port(8, 'out', 'Dish_CLD.json', 'Data_Cleaning_Project.Dish_csv_Cleaning->Dish_CLD.json', 18, 8).
+port(9, 'in', 'MenuItem.csv', 'Data_Cleaning_Project.MenuItem_csv_Cleaning<-MenuItem.csv', 23, 9).
+port(10, 'param', 'MenuItemCleaningSequence', 'Data_Cleaning_Project.MenuItem_csv_Cleaning<-MenuItemCleaningSequence', 25, 10).
+port(11, 'out', 'MenuItem_CLD.csv', 'Data_Cleaning_Project.MenuItem_csv_Cleaning->MenuItem_CLD.csv', 26, 11).
+port(12, 'out', 'MenuItem_CLD.json', 'Data_Cleaning_Project.MenuItem_csv_Cleaning->MenuItem_CLD.json', 28, 12).
+port(13, 'in', 'MenuPage.csv', 'Data_Cleaning_Project.MenuPage_csv_Cleaning<-MenuPage.csv', 33, 13).
+port(14, 'param', 'MenuPageCleaningSequence', 'Data_Cleaning_Project.MenuPage_csv_Cleaning<-MenuPageCleaningSequence', 35, 14).
+port(15, 'out', 'MenuPage_CLD.csv', 'Data_Cleaning_Project.MenuPage_csv_Cleaning->MenuPage_CLD.csv', 36, 15).
+port(16, 'out', 'MenuPage_CLD.json', 'Data_Cleaning_Project.MenuPage_csv_Cleaning->MenuPage_CLD.json', 38, 16).
+port(17, 'in', 'Menu.csv', 'Data_Cleaning_Project.Menu_csv_Cleaning<-Menu.csv', 43, 17).
+port(18, 'param', 'MenuCleaningSequence', 'Data_Cleaning_Project.Menu_csv_Cleaning<-MenuCleaningSequence', 45, 18).
+port(19, 'out', 'Menu_CLD.csv', 'Data_Cleaning_Project.Menu_csv_Cleaning->Menu_CLD.csv', 46, 19).
+port(20, 'out', 'Menu_CLD.json', 'Data_Cleaning_Project.Menu_csv_Cleaning->Menu_CLD.json', 48, 20).
+port(21, 'in', 'Dish_CLD.json', 'Data_Cleaning_Project.OpenRefine_clean_workflow_generateion<-Dish_CLD.json', 53, 8).
+port(22, 'in', 'MenuItem_CLD.json', 'Data_Cleaning_Project.OpenRefine_clean_workflow_generateion<-MenuItem_CLD.json', 55, 12).
+port(23, 'in', 'MenuPage_CLD.json', 'Data_Cleaning_Project.OpenRefine_clean_workflow_generateion<-MenuPage_CLD.json', 57, 16).
+port(24, 'in', 'Menu_CLD.json', 'Data_Cleaning_Project.OpenRefine_clean_workflow_generateion<-Menu_CLD.json', 59, 20).
+port(25, 'out', 'Dish_CLD.pdf', 'Data_Cleaning_Project.OpenRefine_clean_workflow_generateion->Dish_CLD.pdf', 61, 21).
+port(26, 'out', 'MenuItem_CLD.pdf', 'Data_Cleaning_Project.OpenRefine_clean_workflow_generateion->MenuItem_CLD.pdf', 63, 22).
+port(27, 'out', 'MenuPage_CLD.pdf', 'Data_Cleaning_Project.OpenRefine_clean_workflow_generateion->MenuPage_CLD.pdf', 65, 23).
+port(28, 'out', 'Menu_CLD.pdf', 'Data_Cleaning_Project.OpenRefine_clean_workflow_generateion->Menu_CLD.pdf', 67, 24).
+port(29, 'in', 'Dish_CLD.csv', 'Data_Cleaning_Project.LoadCleanedData<-Dish_CLD.csv', 72, 7).
+port(30, 'in', 'MenuItem_CLD.csv', 'Data_Cleaning_Project.LoadCleanedData<-MenuItem_CLD.csv', 74, 11).
+port(31, 'in', 'MenuPage_CLD.csv', 'Data_Cleaning_Project.LoadCleanedData<-MenuPage_CLD.csv', 76, 15).
+port(32, 'in', 'Menu_CLD.csv', 'Data_Cleaning_Project.LoadCleanedData<-Menu_CLD.csv', 78, 19).
+port(33, 'param', 'Database_Schema_Information', 'Data_Cleaning_Project.LoadCleanedData<-Database_Schema_Information', 80, 25).
+port(34, 'out', 'dish_in_NYPL.db', 'Data_Cleaning_Project.LoadCleanedData->dish_in_NYPL.db', 81, 26).
+port(35, 'out', 'menuitem_in_NYPL.db', 'Data_Cleaning_Project.LoadCleanedData->menuitem_in_NYPL.db', 83, 27).
+port(36, 'out', 'menupage_in_NYPL.db', 'Data_Cleaning_Project.LoadCleanedData->menupage_in_NYPL.db', 85, 28).
+port(37, 'out', 'menu_in_NYPL.db', 'Data_Cleaning_Project.LoadCleanedData->menu_in_NYPL.db', 87, 29).
+port(38, 'in', 'dish_in_NYPL.db', 'Data_Cleaning_Project.IDCheck<-dish_in_NYPL.db', 92, 26).
+port(39, 'in', 'menuitem_in_NYPL.db', 'Data_Cleaning_Project.IDCheck<-menuitem_in_NYPL.db', 94, 27).
+port(40, 'in', 'menupage_in_NYPL.db', 'Data_Cleaning_Project.IDCheck<-menupage_in_NYPL.db', 96, 28).
+port(41, 'in', 'menu_in_NYPL.db', 'Data_Cleaning_Project.IDCheck<-menu_in_NYPL.db', 98, 29).
+port(42, 'param', 'InclusionDependencyIC', 'Data_Cleaning_Project.IDCheck<-InclusionDependencyIC', 100, 30).
+port(43, 'out', 'Dish_Output', 'Data_Cleaning_Project.IDCheck->Dish_Output', 101, 31).
+port(44, 'out', 'MenuItem_Output', 'Data_Cleaning_Project.IDCheck->MenuItem_Output', 103, 32).
+port(45, 'out', 'MenuPage_Output', 'Data_Cleaning_Project.IDCheck->MenuPage_Output', 105, 33).
+port(46, 'out', 'Menu_Output', 'Data_Cleaning_Project.IDCheck->Menu_Output', 107, 34).
+port(47, 'out', 'ID_check_reference', 'Data_Cleaning_Project.IDCheck->ID_check_reference', 109, 35).
+port(48, 'in', 'dish_in_NYPL.db', 'Data_Cleaning_Project.Dish_FD_OtherICCheck<-dish_in_NYPL.db', 113, 26).
+port(49, 'param', 'FDAndOtherIC(Dish)', 'Data_Cleaning_Project.Dish_FD_OtherICCheck<-FDAndOtherIC(Dish)', 115, 36).
+port(50, 'out', 'Dish_FD_IC_Output', 'Data_Cleaning_Project.Dish_FD_OtherICCheck->Dish_FD_IC_Output', 116, 37).
+port(51, 'out', 'FD_IC_Check_Reference', 'Data_Cleaning_Project.Dish_FD_OtherICCheck->FD_IC_Check_Reference', 118, 38).
+port(52, 'in', 'menuitem_in_NYPL.db', 'Data_Cleaning_Project.MenuItem_FD_OtherICCheck<-menuitem_in_NYPL.db', 122, 27).
+port(53, 'param', 'FDyAndOtherIC(MenuItem)', 'Data_Cleaning_Project.MenuItem_FD_OtherICCheck<-FDyAndOtherIC(MenuItem)', 124, 39).
+port(54, 'out', 'MenuItem_FD_IC_Output', 'Data_Cleaning_Project.MenuItem_FD_OtherICCheck->MenuItem_FD_IC_Output', 125, 40).
+port(55, 'out', 'FD_IC_Check_Reference', 'Data_Cleaning_Project.MenuItem_FD_OtherICCheck->FD_IC_Check_Reference', 127, 38).
+port(56, 'in', 'menupage_in_NYPL.db', 'Data_Cleaning_Project.MenuPage_FD_OtherICCheck<-menupage_in_NYPL.db', 131, 28).
+port(57, 'param', 'FDyAndOtherIC(MenuPage)', 'Data_Cleaning_Project.MenuPage_FD_OtherICCheck<-FDyAndOtherIC(MenuPage)', 133, 41).
+port(58, 'out', 'MenuPage_FD_IC_Output', 'Data_Cleaning_Project.MenuPage_FD_OtherICCheck->MenuPage_FD_IC_Output', 134, 42).
+port(59, 'out', 'FD_IC_Check_Reference', 'Data_Cleaning_Project.MenuPage_FD_OtherICCheck->FD_IC_Check_Reference', 136, 38).
+port(60, 'in', 'menu_in_NYPL.db', 'Data_Cleaning_Project.Menu_FD/OtherICCheck<-menu_in_NYPL.db', 140, 29).
+port(61, 'param', 'FDyAndOtherIC(Menu)', 'Data_Cleaning_Project.Menu_FD/OtherICCheck<-FDyAndOtherIC(Menu)', 142, 43).
+port(62, 'out', 'Menu_FD_IC_Output', 'Data_Cleaning_Project.Menu_FD/OtherICCheck->Menu_FD_IC_Output', 143, 44).
+port(63, 'out', 'FD_IC_Check_Reference', 'Data_Cleaning_Project.Menu_FD/OtherICCheck->FD_IC_Check_Reference', 145, 38).
+port(64, 'in', 'dish_in_NYPL.db', 'Data_Cleaning_Project.NewDataGeneration<-dish_in_NYPL.db', 149, 26).
+port(65, 'in', 'menuitem_in_NYPL.db', 'Data_Cleaning_Project.NewDataGeneration<-menuitem_in_NYPL.db', 151, 27).
+port(66, 'in', 'menupage_in_NYPL.db', 'Data_Cleaning_Project.NewDataGeneration<-menupage_in_NYPL.db', 153, 28).
+port(67, 'in', 'menu_in_NYPL.db', 'Data_Cleaning_Project.NewDataGeneration<-menu_in_NYPL.db', 155, 29).
+port(68, 'param', 'FD_IC_Check_Reference', 'Data_Cleaning_Project.NewDataGeneration<-FD_IC_Check_Reference', 157, 38).
+port(69, 'param', 'ID_check_reference', 'Data_Cleaning_Project.NewDataGeneration<-ID_check_reference', 158, 35).
+port(70, 'out', 'Dish_New', 'Data_Cleaning_Project.NewDataGeneration->Dish_New', 159, 45).
+port(71, 'out', 'MenuItem_New', 'Data_Cleaning_Project.NewDataGeneration->MenuItem_New', 161, 46).
+port(72, 'out', 'MenuPage_New', 'Data_Cleaning_Project.NewDataGeneration->MenuPage_New', 163, 47).
+port(73, 'out', 'Menu_New', 'Data_Cleaning_Project.NewDataGeneration->Menu_New', 165, 48).
+
+% FACT: port_alias(port_id, alias).
+
+% FACT: port_uri_template(port_id, uri).
+port_uri_template(1, '/wd/Dish.csv').
+port_uri_template(2, '/wd/MenuItem.csv').
+port_uri_template(3, '/wd/data/MenuPage.csv').
+port_uri_template(4, '/wd/Dish.csv').
+port_uri_template(74, '/wd/dish_id_check.csv').
+port_uri_template(75, '/wd/menuitem_id_check.csv').
+port_uri_template(76, '/wd/menupage_id_check.csv').
+port_uri_template(77, '/wd/menu_id_check.csv').
+port_uri_template(78, '/wd/Dish_CLD.pdf').
+port_uri_template(79, '/wd/MenuItem_CLD.pdf').
+port_uri_template(80, '/wd/MenuPage_CLD.pdf').
+port_uri_template(81, '/wd/Menu_CLD.pdf').
+port_uri_template(82, '/wd/dish_fd_ic.csv').
+port_uri_template(83, '/wd/menuitem_fd_ic.csv').
+port_uri_template(84, '/wd/menupage_fd_ic.csv').
+port_uri_template(85, '/wd/menu_fd_ic.csv').
+port_uri_template(86, '/wd/New_Data/dish_new.csv').
+port_uri_template(87, '/wd/New_Data/menuitem_new.csv').
+port_uri_template(88, '/wd/New_Data/menupage_new.csv').
+port_uri_template(89, '/wd/New_Data/menu_new.csv').
+port_uri_template(5, '/wd/Dish.csv').
+port_uri_template(7, '/wd/Dish_CLD.csv').
+port_uri_template(8, '/wd/Dish_CLD.json').
+port_uri_template(9, '/wd/MenuItem.csv').
+port_uri_template(11, '/wd/MenuItem_CLD.csv').
+port_uri_template(12, '/wd/MenuItem_CLD.json').
+port_uri_template(13, '/wd/MenuPage.csv').
+port_uri_template(15, '/wd/MenuPage_CLD.csv').
+port_uri_template(16, '/wd/MenuPage_CLD.json').
+port_uri_template(17, '/wd/Menu.csv').
+port_uri_template(19, '/wd/Menu_CLD.csv').
+port_uri_template(20, '/wd/Menu_CLD.json').
+port_uri_template(21, '/wd/Dish_CLD.json').
+port_uri_template(22, '/wd/MenuItem_CLD.json').
+port_uri_template(23, '/wd/MenuPage_CLD.json').
+port_uri_template(24, '/wd/Menu_CLD.json').
+port_uri_template(25, '/wd/Dish_CLD.pdf').
+port_uri_template(26, '/wd/MenuItem_CLD.pdf').
+port_uri_template(27, '/wd/MenuPage_CLD.pdf').
+port_uri_template(28, '/wd/Menu_CLD.pdf').
+port_uri_template(29, '/wd/Dish_CLD.csv').
+port_uri_template(30, '/wd/MenuItem_CLD.csv').
+port_uri_template(31, '/wd/MenuPage_CLD.csv').
+port_uri_template(32, '/wd/Menu_CLD.csv').
+port_uri_template(34, '/wd/NYPL.db').
+port_uri_template(35, '/wd/NYPL.db').
+port_uri_template(36, '/wd/NYPL.db').
+port_uri_template(37, '/wd/NYPL.db').
+port_uri_template(38, '/wd/NYPL.db').
+port_uri_template(39, '/wd/NYPL.db').
+port_uri_template(40, '/wd/NYPL.db').
+port_uri_template(41, '/wd/NYPL.db').
+port_uri_template(43, '/wd/dish_id_check.csv').
+port_uri_template(44, '/wd/menuitem_id_check.csv').
+port_uri_template(45, '/wd/menupage_id_check.csv').
+port_uri_template(46, '/wd/menu_id_check.csv').
+port_uri_template(48, '/wd/NYPL.db').
+port_uri_template(50, '/wd/dish_fd_ic.csv').
+port_uri_template(52, '/wd/NYPL.db').
+port_uri_template(54, '/wd/menuitem_fd_ic.csv').
+port_uri_template(56, '/wd/NYPL.db').
+port_uri_template(58, '/wd/menupage_fd_ic.csv').
+port_uri_template(60, '/wd/NYPL.db').
+port_uri_template(62, '/wd/menu_fd_ic.csv').
+port_uri_template(64, '/wd/NYPL.db').
+port_uri_template(65, '/wd/NYPL.db').
+port_uri_template(66, '/wd/NYPL.db').
+port_uri_template(67, '/wd/NYPL.db').
+port_uri_template(70, '/wd/dish_new.csv').
+port_uri_template(71, '/wd/menuitem_new.csv').
+port_uri_template(72, '/wd/menupage_new.csv').
+port_uri_template(73, '/wd/menu_new.csv').
+
+% FACT: has_in_port(block_id, port_id).
+has_in_port(1, 1).
+has_in_port(1, 2).
+has_in_port(1, 3).
+has_in_port(1, 4).
+has_in_port(2, 5).
+has_in_port(2, 6).
+has_in_port(3, 9).
+has_in_port(3, 10).
+has_in_port(4, 13).
+has_in_port(4, 14).
+has_in_port(5, 17).
+has_in_port(5, 18).
+has_in_port(6, 21).
+has_in_port(6, 22).
+has_in_port(6, 23).
+has_in_port(6, 24).
+has_in_port(7, 29).
+has_in_port(7, 30).
+has_in_port(7, 31).
+has_in_port(7, 32).
+has_in_port(7, 33).
+has_in_port(8, 38).
+has_in_port(8, 39).
+has_in_port(8, 40).
+has_in_port(8, 41).
+has_in_port(8, 42).
+has_in_port(9, 48).
+has_in_port(9, 49).
+has_in_port(10, 52).
+has_in_port(10, 53).
+has_in_port(11, 56).
+has_in_port(11, 57).
+has_in_port(12, 60).
+has_in_port(12, 61).
+has_in_port(13, 64).
+has_in_port(13, 65).
+has_in_port(13, 66).
+has_in_port(13, 67).
+has_in_port(13, 68).
+has_in_port(13, 69).
+
+% FACT: has_out_port(block_id, port_id).
+has_out_port(1, 74).
+has_out_port(1, 75).
+has_out_port(1, 76).
+has_out_port(1, 77).
+has_out_port(1, 78).
+has_out_port(1, 79).
+has_out_port(1, 80).
+has_out_port(1, 81).
+has_out_port(1, 82).
+has_out_port(1, 83).
+has_out_port(1, 84).
+has_out_port(1, 85).
+has_out_port(1, 86).
+has_out_port(1, 87).
+has_out_port(1, 88).
+has_out_port(1, 89).
+has_out_port(2, 7).
+has_out_port(2, 8).
+has_out_port(3, 11).
+has_out_port(3, 12).
+has_out_port(4, 15).
+has_out_port(4, 16).
+has_out_port(5, 19).
+has_out_port(5, 20).
+has_out_port(6, 25).
+has_out_port(6, 26).
+has_out_port(6, 27).
+has_out_port(6, 28).
+has_out_port(7, 34).
+has_out_port(7, 35).
+has_out_port(7, 36).
+has_out_port(7, 37).
+has_out_port(8, 43).
+has_out_port(8, 44).
+has_out_port(8, 45).
+has_out_port(8, 46).
+has_out_port(8, 47).
+has_out_port(9, 50).
+has_out_port(9, 51).
+has_out_port(10, 54).
+has_out_port(10, 55).
+has_out_port(11, 58).
+has_out_port(11, 59).
+has_out_port(12, 62).
+has_out_port(12, 63).
+has_out_port(13, 70).
+has_out_port(13, 71).
+has_out_port(13, 72).
+has_out_port(13, 73).
+
+% FACT: data(data_id, data_name, qualified_data_name).
+data(1, 'Dish.csv', '[Dish.csv]').
+data(2, 'MenuItem.csv', '[MenuItem.csv]').
+data(3, 'MenuPage.csv', '[MenuPage.csv]').
+data(4, 'Menu.csv', '[Menu.csv]').
+data(49, 'Dish_Output', '[Dish_Output]').
+data(50, 'MenuItem_Output', '[MenuItem_Output]').
+data(51, 'MenuPage_Output', '[MenuPage_Output]').
+data(52, 'Menu_Output', '[Menu_Output]').
+data(53, 'Dish_CLD.pdf', '[Dish_CLD.pdf]').
+data(54, 'MenuItem_CLD.pdf', '[MenuItem_CLD.pdf]').
+data(55, 'MenuPage_CLD.pdf', '[MenuPage_CLD.pdf]').
+data(56, 'Menu_CLD.pdf', '[Menu_CLD.pdf]').
+data(57, 'Dish_FD_IC_Output', '[Dish_FD_IC_Output]').
+data(58, 'MenuItem_FD_IC_Output', '[MenuItem_FD_IC_Output]').
+data(59, 'MenuPage_FD_IC_Output', '[MenuPage_FD_IC_Output]').
+data(60, 'Menu_FD_IC_Output', '[Menu_FD_IC_Output]').
+data(61, 'Dish_New', '[Dish_New]').
+data(62, 'MenuItem_New', '[MenuItem_New]').
+data(63, 'MenuPage_New', '[MenuPage_New]').
+data(64, 'Menu_New', '[Menu_New]').
+data(5, 'Dish.csv', 'Data_Cleaning_Project[Dish.csv]').
+data(6, 'DishCleaningSequence', 'Data_Cleaning_Project[DishCleaningSequence]').
+data(7, 'Dish_CLD.csv', 'Data_Cleaning_Project[Dish_CLD.csv]').
+data(8, 'Dish_CLD.json', 'Data_Cleaning_Project[Dish_CLD.json]').
+data(9, 'MenuItem.csv', 'Data_Cleaning_Project[MenuItem.csv]').
+data(10, 'MenuItemCleaningSequence', 'Data_Cleaning_Project[MenuItemCleaningSequence]').
+data(11, 'MenuItem_CLD.csv', 'Data_Cleaning_Project[MenuItem_CLD.csv]').
+data(12, 'MenuItem_CLD.json', 'Data_Cleaning_Project[MenuItem_CLD.json]').
+data(13, 'MenuPage.csv', 'Data_Cleaning_Project[MenuPage.csv]').
+data(14, 'MenuPageCleaningSequence', 'Data_Cleaning_Project[MenuPageCleaningSequence]').
+data(15, 'MenuPage_CLD.csv', 'Data_Cleaning_Project[MenuPage_CLD.csv]').
+data(16, 'MenuPage_CLD.json', 'Data_Cleaning_Project[MenuPage_CLD.json]').
+data(17, 'Menu.csv', 'Data_Cleaning_Project[Menu.csv]').
+data(18, 'MenuCleaningSequence', 'Data_Cleaning_Project[MenuCleaningSequence]').
+data(19, 'Menu_CLD.csv', 'Data_Cleaning_Project[Menu_CLD.csv]').
+data(20, 'Menu_CLD.json', 'Data_Cleaning_Project[Menu_CLD.json]').
+data(21, 'Dish_CLD.pdf', 'Data_Cleaning_Project[Dish_CLD.pdf]').
+data(22, 'MenuItem_CLD.pdf', 'Data_Cleaning_Project[MenuItem_CLD.pdf]').
+data(23, 'MenuPage_CLD.pdf', 'Data_Cleaning_Project[MenuPage_CLD.pdf]').
+data(24, 'Menu_CLD.pdf', 'Data_Cleaning_Project[Menu_CLD.pdf]').
+data(25, 'Database_Schema_Information', 'Data_Cleaning_Project[Database_Schema_Information]').
+data(26, 'dish_in_NYPL.db', 'Data_Cleaning_Project[dish_in_NYPL.db]').
+data(27, 'menuitem_in_NYPL.db', 'Data_Cleaning_Project[menuitem_in_NYPL.db]').
+data(28, 'menupage_in_NYPL.db', 'Data_Cleaning_Project[menupage_in_NYPL.db]').
+data(29, 'menu_in_NYPL.db', 'Data_Cleaning_Project[menu_in_NYPL.db]').
+data(30, 'InclusionDependencyIC', 'Data_Cleaning_Project[InclusionDependencyIC]').
+data(31, 'Dish_Output', 'Data_Cleaning_Project[Dish_Output]').
+data(32, 'MenuItem_Output', 'Data_Cleaning_Project[MenuItem_Output]').
+data(33, 'MenuPage_Output', 'Data_Cleaning_Project[MenuPage_Output]').
+data(34, 'Menu_Output', 'Data_Cleaning_Project[Menu_Output]').
+data(35, 'ID_check_reference', 'Data_Cleaning_Project[ID_check_reference]').
+data(36, 'FDAndOtherIC(Dish)', 'Data_Cleaning_Project[FDAndOtherIC(Dish)]').
+data(37, 'Dish_FD_IC_Output', 'Data_Cleaning_Project[Dish_FD_IC_Output]').
+data(38, 'FD_IC_Check_Reference', 'Data_Cleaning_Project[FD_IC_Check_Reference]').
+data(39, 'FDyAndOtherIC(MenuItem)', 'Data_Cleaning_Project[FDyAndOtherIC(MenuItem)]').
+data(40, 'MenuItem_FD_IC_Output', 'Data_Cleaning_Project[MenuItem_FD_IC_Output]').
+data(41, 'FDyAndOtherIC(MenuPage)', 'Data_Cleaning_Project[FDyAndOtherIC(MenuPage)]').
+data(42, 'MenuPage_FD_IC_Output', 'Data_Cleaning_Project[MenuPage_FD_IC_Output]').
+data(43, 'FDyAndOtherIC(Menu)', 'Data_Cleaning_Project[FDyAndOtherIC(Menu)]').
+data(44, 'Menu_FD_IC_Output', 'Data_Cleaning_Project[Menu_FD_IC_Output]').
+data(45, 'Dish_New', 'Data_Cleaning_Project[Dish_New]').
+data(46, 'MenuItem_New', 'Data_Cleaning_Project[MenuItem_New]').
+data(47, 'MenuPage_New', 'Data_Cleaning_Project[MenuPage_New]').
+data(48, 'Menu_New', 'Data_Cleaning_Project[Menu_New]').
+
+% FACT: channel(channel_id, data_id).
+channel(1, 5).
+channel(2, 9).
+channel(3, 13).
+channel(4, 17).
+channel(5, 8).
+channel(6, 12).
+channel(7, 16).
+channel(8, 20).
+channel(9, 7).
+channel(10, 11).
+channel(11, 15).
+channel(12, 19).
+channel(13, 26).
+channel(14, 26).
+channel(15, 26).
+channel(16, 27).
+channel(17, 27).
+channel(18, 27).
+channel(19, 28).
+channel(20, 28).
+channel(21, 28).
+channel(22, 29).
+channel(23, 29).
+channel(24, 29).
+channel(25, 38).
+channel(26, 35).
+channel(27, 49).
+channel(28, 50).
+channel(29, 51).
+channel(30, 52).
+channel(31, 53).
+channel(32, 54).
+channel(33, 55).
+channel(34, 56).
+channel(35, 57).
+channel(36, 58).
+channel(37, 59).
+channel(38, 60).
+channel(39, 61).
+channel(40, 62).
+channel(41, 63).
+channel(42, 64).
+channel(43, 1).
+channel(44, 2).
+channel(45, 3).
+channel(46, 4).
+channel(47, 31).
+channel(48, 32).
+channel(49, 33).
+channel(50, 34).
+channel(51, 21).
+channel(52, 22).
+channel(53, 23).
+channel(54, 24).
+channel(55, 37).
+channel(56, 40).
+channel(57, 42).
+channel(58, 44).
+channel(59, 45).
+channel(60, 46).
+channel(61, 47).
+channel(62, 48).
+
+% FACT: port_connects_to_channel(port_id, channel_id).
+port_connects_to_channel(5, 1).
+port_connects_to_channel(9, 2).
+port_connects_to_channel(13, 3).
+port_connects_to_channel(17, 4).
+port_connects_to_channel(8, 5).
+port_connects_to_channel(21, 5).
+port_connects_to_channel(12, 6).
+port_connects_to_channel(22, 6).
+port_connects_to_channel(16, 7).
+port_connects_to_channel(23, 7).
+port_connects_to_channel(20, 8).
+port_connects_to_channel(24, 8).
+port_connects_to_channel(7, 9).
+port_connects_to_channel(29, 9).
+port_connects_to_channel(11, 10).
+port_connects_to_channel(30, 10).
+port_connects_to_channel(15, 11).
+port_connects_to_channel(31, 11).
+port_connects_to_channel(19, 12).
+port_connects_to_channel(32, 12).
+port_connects_to_channel(34, 13).
+port_connects_to_channel(38, 13).
+port_connects_to_channel(34, 14).
+port_connects_to_channel(48, 14).
+port_connects_to_channel(34, 15).
+port_connects_to_channel(64, 15).
+port_connects_to_channel(35, 16).
+port_connects_to_channel(39, 16).
+port_connects_to_channel(35, 17).
+port_connects_to_channel(52, 17).
+port_connects_to_channel(35, 18).
+port_connects_to_channel(65, 18).
+port_connects_to_channel(36, 19).
+port_connects_to_channel(40, 19).
+port_connects_to_channel(36, 20).
+port_connects_to_channel(56, 20).
+port_connects_to_channel(36, 21).
+port_connects_to_channel(66, 21).
+port_connects_to_channel(37, 22).
+port_connects_to_channel(41, 22).
+port_connects_to_channel(37, 23).
+port_connects_to_channel(60, 23).
+port_connects_to_channel(37, 24).
+port_connects_to_channel(67, 24).
+port_connects_to_channel(63, 25).
+port_connects_to_channel(68, 25).
+port_connects_to_channel(47, 26).
+port_connects_to_channel(69, 26).
+port_connects_to_channel(43, 27).
+port_connects_to_channel(44, 28).
+port_connects_to_channel(45, 29).
+port_connects_to_channel(46, 30).
+port_connects_to_channel(25, 31).
+port_connects_to_channel(26, 32).
+port_connects_to_channel(27, 33).
+port_connects_to_channel(28, 34).
+port_connects_to_channel(50, 35).
+port_connects_to_channel(54, 36).
+port_connects_to_channel(58, 37).
+port_connects_to_channel(62, 38).
+port_connects_to_channel(70, 39).
+port_connects_to_channel(71, 40).
+port_connects_to_channel(72, 41).
+port_connects_to_channel(73, 42).
+port_connects_to_channel(5, 43).
+port_connects_to_channel(9, 44).
+port_connects_to_channel(13, 45).
+port_connects_to_channel(17, 46).
+port_connects_to_channel(43, 47).
+port_connects_to_channel(44, 48).
+port_connects_to_channel(45, 49).
+port_connects_to_channel(46, 50).
+port_connects_to_channel(25, 51).
+port_connects_to_channel(26, 52).
+port_connects_to_channel(27, 53).
+port_connects_to_channel(28, 54).
+port_connects_to_channel(50, 55).
+port_connects_to_channel(54, 56).
+port_connects_to_channel(58, 57).
+port_connects_to_channel(62, 58).
+port_connects_to_channel(70, 59).
+port_connects_to_channel(71, 60).
+port_connects_to_channel(72, 61).
+port_connects_to_channel(73, 62).
+
+% FACT: inflow_connects_to_channel(port_id, channel_id).
+inflow_connects_to_channel(1, 1).
+inflow_connects_to_channel(2, 2).
+inflow_connects_to_channel(3, 3).
+inflow_connects_to_channel(4, 4).
+inflow_connects_to_channel(1, 43).
+inflow_connects_to_channel(2, 44).
+inflow_connects_to_channel(3, 45).
+inflow_connects_to_channel(4, 46).
+
+% FACT: outflow_connects_to_channel(port_id, channel_id).
+outflow_connects_to_channel(74, 27).
+outflow_connects_to_channel(75, 28).
+outflow_connects_to_channel(76, 29).
+outflow_connects_to_channel(77, 30).
+outflow_connects_to_channel(78, 31).
+outflow_connects_to_channel(79, 32).
+outflow_connects_to_channel(80, 33).
+outflow_connects_to_channel(81, 34).
+outflow_connects_to_channel(82, 35).
+outflow_connects_to_channel(83, 36).
+outflow_connects_to_channel(84, 37).
+outflow_connects_to_channel(85, 38).
+outflow_connects_to_channel(86, 39).
+outflow_connects_to_channel(87, 40).
+outflow_connects_to_channel(88, 41).
+outflow_connects_to_channel(89, 42).
+outflow_connects_to_channel(74, 47).
+outflow_connects_to_channel(75, 48).
+outflow_connects_to_channel(76, 49).
+outflow_connects_to_channel(77, 50).
+outflow_connects_to_channel(78, 51).
+outflow_connects_to_channel(79, 52).
+outflow_connects_to_channel(80, 53).
+outflow_connects_to_channel(81, 54).
+outflow_connects_to_channel(82, 55).
+outflow_connects_to_channel(83, 56).
+outflow_connects_to_channel(84, 57).
+outflow_connects_to_channel(85, 58).
+outflow_connects_to_channel(86, 59).
+outflow_connects_to_channel(87, 60).
+outflow_connects_to_channel(88, 61).
+outflow_connects_to_channel(89, 62).
+
+% FACT: uri_variable(uri_variable_id, variable_name, port_id).
+
+% FACT: log_template(log_template_id, port_id, entry_template, log_annotation_id).
+
+% FACT: log_template_variable(log_variable_id, variable_name, log_template_id).
+
+% FACT: extract_source(source_id, source_path).
+extract_source(1, '').
+
+% FACT: annotation(annotation_id, source_id, line_number, tag, keyword, value).
+annotation(1, 1, 8, 'begin', '@begin', 'Data_Cleaning_Project').
+annotation(2, 1, 8, 'desc', '@desc', 'Workflow for cleaning NYPL Menus DataSet').
+annotation(3, 1, 23, 'in', '@in', 'Dish.csv').
+annotation(4, 1, 23, 'uri', '@uri', '/wd/Dish.csv').
+annotation(5, 1, 24, 'in', '@in', 'MenuItem.csv').
+annotation(6, 1, 24, 'uri', '@uri', '/wd/MenuItem.csv').
+annotation(7, 1, 25, 'in', '@in', 'MenuPage.csv').
+annotation(8, 1, 25, 'uri', '@uri', '/wd/data/MenuPage.csv').
+annotation(9, 1, 26, 'in', '@in', 'Menu.csv').
+annotation(10, 1, 26, 'uri', '@uri', '/wd/Dish.csv').
+annotation(11, 1, 31, 'begin', '@begin', 'Dish_csv_Cleaning').
+annotation(12, 1, 31, 'desc', '@desc', 'Clean Dish.csv in OpenRefine').
+annotation(13, 1, 32, 'in', '@in', 'Dish.csv').
+annotation(14, 1, 32, 'uri', '@uri', '/wd/Dish.csv').
+annotation(15, 1, 33, 'param', '@param', 'DishCleaningSequence').
+annotation(16, 1, 34, 'out', '@out', 'Dish_CLD.csv').
+annotation(17, 1, 34, 'uri', '@uri', '/wd/Dish_CLD.csv').
+annotation(18, 1, 35, 'out', '@out', 'Dish_CLD.json').
+annotation(19, 1, 35, 'uri', '@uri', '/wd/Dish_CLD.json').
+annotation(20, 1, 36, 'end', '@end', 'Dish_csv_Cleaning').
+annotation(21, 1, 38, 'begin', '@begin', 'MenuItem_csv_Cleaning').
+annotation(22, 1, 38, 'desc', '@desc', 'Clean MenuItem.csv in OpenRefine').
+annotation(23, 1, 39, 'in', '@in', 'MenuItem.csv').
+annotation(24, 1, 39, 'uri', '@uri', '/wd/MenuItem.csv').
+annotation(25, 1, 40, 'param', '@param', 'MenuItemCleaningSequence').
+annotation(26, 1, 41, 'out', '@out', 'MenuItem_CLD.csv').
+annotation(27, 1, 41, 'uri', '@uri', '/wd/MenuItem_CLD.csv').
+annotation(28, 1, 42, 'out', '@out', 'MenuItem_CLD.json').
+annotation(29, 1, 42, 'uri', '@uri', '/wd/MenuItem_CLD.json').
+annotation(30, 1, 43, 'end', '@end', 'MenuItem_csv_Cleaning').
+annotation(31, 1, 45, 'begin', '@begin', 'MenuPage_csv_Cleaning').
+annotation(32, 1, 45, 'desc', '@desc', 'Clean MenuPage.csv in OpenRefine').
+annotation(33, 1, 46, 'in', '@in', 'MenuPage.csv').
+annotation(34, 1, 46, 'uri', '@uri', '/wd/MenuPage.csv').
+annotation(35, 1, 47, 'param', '@param', 'MenuPageCleaningSequence').
+annotation(36, 1, 48, 'out', '@out', 'MenuPage_CLD.csv').
+annotation(37, 1, 48, 'uri', '@uri', '/wd/MenuPage_CLD.csv').
+annotation(38, 1, 49, 'out', '@out', 'MenuPage_CLD.json').
+annotation(39, 1, 49, 'uri', '@uri', '/wd/MenuPage_CLD.json').
+annotation(40, 1, 50, 'end', '@end', 'MenuPage_csv_Cleaning').
+annotation(41, 1, 52, 'begin', '@begin', 'Menu_csv_Cleaning').
+annotation(42, 1, 52, 'desc', '@desc', 'Use Clean Menu.csv in OpenRefine').
+annotation(43, 1, 53, 'in', '@in', 'Menu.csv').
+annotation(44, 1, 53, 'uri', '@uri', '/wd/Menu.csv').
+annotation(45, 1, 54, 'param', '@param', 'MenuCleaningSequence').
+annotation(46, 1, 55, 'out', '@out', 'Menu_CLD.csv').
+annotation(47, 1, 55, 'uri', '@uri', '/wd/Menu_CLD.csv').
+annotation(48, 1, 56, 'out', '@out', 'Menu_CLD.json').
+annotation(49, 1, 56, 'uri', '@uri', '/wd/Menu_CLD.json').
+annotation(50, 1, 57, 'end', '@end', 'Menu_csv_Cleaning').
+annotation(51, 1, 63, 'begin', '@begin', 'OpenRefine_clean_workflow_generateion').
+annotation(52, 1, 63, 'desc', '@desc', 'Generate workflow by YesWorkFlow (or2ywtool)').
+annotation(53, 1, 64, 'in', '@in', 'Dish_CLD.json').
+annotation(54, 1, 64, 'uri', '@uri', '/wd/Dish_CLD.json').
+annotation(55, 1, 65, 'in', '@in', 'MenuItem_CLD.json').
+annotation(56, 1, 65, 'uri', '@uri', '/wd/MenuItem_CLD.json').
+annotation(57, 1, 66, 'in', '@in', 'MenuPage_CLD.json').
+annotation(58, 1, 66, 'uri', '@uri', '/wd/MenuPage_CLD.json').
+annotation(59, 1, 67, 'in', '@in', 'Menu_CLD.json').
+annotation(60, 1, 67, 'uri', '@uri', '/wd/Menu_CLD.json').
+annotation(61, 1, 68, 'out', '@out', 'Dish_CLD.pdf').
+annotation(62, 1, 68, 'uri', '@uri', '/wd/Dish_CLD.pdf').
+annotation(63, 1, 69, 'out', '@out', 'MenuItem_CLD.pdf').
+annotation(64, 1, 69, 'uri', '@uri', '/wd/MenuItem_CLD.pdf').
+annotation(65, 1, 70, 'out', '@out', 'MenuPage_CLD.pdf').
+annotation(66, 1, 70, 'uri', '@uri', '/wd/MenuPage_CLD.pdf').
+annotation(67, 1, 71, 'out', '@out', 'Menu_CLD.pdf').
+annotation(68, 1, 71, 'uri', '@uri', '/wd/Menu_CLD.pdf').
+annotation(69, 1, 72, 'end', '@end', 'OpenRefine_clean_workflow_generateion').
+annotation(70, 1, 82, 'begin', '@begin', 'LoadCleanedData').
+annotation(71, 1, 82, 'desc', '@desc', 'Load cleaned data into Sqlite DB with 4 tables (Dish,MenuItem,MenuPage,Menu)').
+annotation(72, 1, 83, 'in', '@in', 'Dish_CLD.csv').
+annotation(73, 1, 83, 'uri', '@uri', '/wd/Dish_CLD.csv').
+annotation(74, 1, 84, 'in', '@in', 'MenuItem_CLD.csv').
+annotation(75, 1, 84, 'uri', '@uri', '/wd/MenuItem_CLD.csv').
+annotation(76, 1, 85, 'in', '@in', 'MenuPage_CLD.csv').
+annotation(77, 1, 85, 'uri', '@uri', '/wd/MenuPage_CLD.csv').
+annotation(78, 1, 86, 'in', '@in', 'Menu_CLD.csv').
+annotation(79, 1, 86, 'uri', '@uri', '/wd/Menu_CLD.csv').
+annotation(80, 1, 87, 'param', '@param', 'Database_Schema_Information').
+annotation(81, 1, 88, 'out', '@out', 'dish_in_NYPL.db').
+annotation(82, 1, 88, 'uri', '@uri', '/wd/NYPL.db').
+annotation(83, 1, 89, 'out', '@out', 'menuitem_in_NYPL.db').
+annotation(84, 1, 89, 'uri', '@uri', '/wd/NYPL.db').
+annotation(85, 1, 90, 'out', '@out', 'menupage_in_NYPL.db').
+annotation(86, 1, 90, 'uri', '@uri', '/wd/NYPL.db').
+annotation(87, 1, 91, 'out', '@out', 'menu_in_NYPL.db').
+annotation(88, 1, 91, 'uri', '@uri', '/wd/NYPL.db').
+annotation(89, 1, 92, 'end', '@end', 'LoadCleanedData').
+annotation(90, 1, 122, 'begin', '@begin', 'IDCheck').
+annotation(91, 1, 122, 'desc', '@desc', 'Apply SQL in Inclusion Dependency Check').
+annotation(92, 1, 123, 'in', '@in', 'dish_in_NYPL.db').
+annotation(93, 1, 123, 'uri', '@uri', '/wd/NYPL.db').
+annotation(94, 1, 124, 'in', '@in', 'menuitem_in_NYPL.db').
+annotation(95, 1, 124, 'uri', '@uri', '/wd/NYPL.db').
+annotation(96, 1, 125, 'in', '@in', 'menupage_in_NYPL.db').
+annotation(97, 1, 125, 'uri', '@uri', '/wd/NYPL.db').
+annotation(98, 1, 126, 'in', '@in', 'menu_in_NYPL.db').
+annotation(99, 1, 126, 'uri', '@uri', '/wd/NYPL.db').
+annotation(100, 1, 127, 'param', '@param', 'InclusionDependencyIC').
+annotation(101, 1, 128, 'out', '@out', 'Dish_Output').
+annotation(102, 1, 128, 'uri', '@uri', '/wd/dish_id_check.csv').
+annotation(103, 1, 129, 'out', '@out', 'MenuItem_Output').
+annotation(104, 1, 129, 'uri', '@uri', '/wd/menuitem_id_check.csv').
+annotation(105, 1, 130, 'out', '@out', 'MenuPage_Output').
+annotation(106, 1, 130, 'uri', '@uri', '/wd/menupage_id_check.csv').
+annotation(107, 1, 131, 'out', '@out', 'Menu_Output').
+annotation(108, 1, 131, 'uri', '@uri', '/wd/menu_id_check.csv').
+annotation(109, 1, 132, 'out', '@out', 'ID_check_reference').
+annotation(110, 1, 133, 'end', '@end', 'IDCheck').
+annotation(111, 1, 152, 'begin', '@begin', 'Dish_FD_OtherICCheck').
+annotation(112, 1, 152, 'desc', '@desc', 'Apply SQL in Single Table').
+annotation(113, 1, 153, 'in', '@in', 'dish_in_NYPL.db').
+annotation(114, 1, 153, 'uri', '@uri', '/wd/NYPL.db').
+annotation(115, 1, 154, 'param', '@param', 'FDAndOtherIC(Dish)').
+annotation(116, 1, 155, 'out', '@out', 'Dish_FD_IC_Output').
+annotation(117, 1, 155, 'uri', '@uri', '/wd/dish_fd_ic.csv').
+annotation(118, 1, 156, 'out', '@out', 'FD_IC_Check_Reference').
+annotation(119, 1, 157, 'end', '@end', 'Dish_FD_OtherICCheck').
+annotation(120, 1, 159, 'begin', '@begin', 'MenuItem_FD_OtherICCheck').
+annotation(121, 1, 159, 'desc', '@desc', 'Apply SQL in Single Table').
+annotation(122, 1, 160, 'in', '@in', 'menuitem_in_NYPL.db').
+annotation(123, 1, 160, 'uri', '@uri', '/wd/NYPL.db').
+annotation(124, 1, 161, 'param', '@param', 'FDyAndOtherIC(MenuItem)').
+annotation(125, 1, 162, 'out', '@out', 'MenuItem_FD_IC_Output').
+annotation(126, 1, 162, 'uri', '@uri', '/wd/menuitem_fd_ic.csv').
+annotation(127, 1, 163, 'out', '@out', 'FD_IC_Check_Reference').
+annotation(128, 1, 164, 'end', '@end', 'MenuItem_FD_OtherICCheck').
+annotation(129, 1, 166, 'begin', '@begin', 'MenuPage_FD_OtherICCheck').
+annotation(130, 1, 166, 'desc', '@desc', 'Apply SQL in Single Table').
+annotation(131, 1, 167, 'in', '@in', 'menupage_in_NYPL.db').
+annotation(132, 1, 167, 'uri', '@uri', '/wd/NYPL.db').
+annotation(133, 1, 168, 'param', '@param', 'FDyAndOtherIC(MenuPage)').
+annotation(134, 1, 169, 'out', '@out', 'MenuPage_FD_IC_Output').
+annotation(135, 1, 169, 'uri', '@uri', '/wd/menupage_fd_ic.csv').
+annotation(136, 1, 170, 'out', '@out', 'FD_IC_Check_Reference').
+annotation(137, 1, 171, 'end', '@end', 'MenuPage_FD_OtherICCheck').
+annotation(138, 1, 173, 'begin', '@begin', 'Menu_FD/OtherICCheck').
+annotation(139, 1, 173, 'desc', '@desc', 'Apply SQL in Single Table').
+annotation(140, 1, 174, 'in', '@in', 'menu_in_NYPL.db').
+annotation(141, 1, 174, 'uri', '@uri', '/wd/NYPL.db').
+annotation(142, 1, 175, 'param', '@param', 'FDyAndOtherIC(Menu)').
+annotation(143, 1, 176, 'out', '@out', 'Menu_FD_IC_Output').
+annotation(144, 1, 176, 'uri', '@uri', '/wd/menu_fd_ic.csv').
+annotation(145, 1, 177, 'out', '@out', 'FD_IC_Check_Reference').
+annotation(146, 1, 178, 'end', '@end', 'Menu_FD_OtherICCheck').
+annotation(147, 1, 246, 'begin', '@begin', 'NewDataGeneration').
+annotation(148, 1, 246, 'desc', '@desc', 'Apply FD_IC_check result and ID_check result').
+annotation(149, 1, 247, 'in', '@in', 'dish_in_NYPL.db').
+annotation(150, 1, 247, 'uri', '@uri', '/wd/NYPL.db').
+annotation(151, 1, 248, 'in', '@in', 'menuitem_in_NYPL.db').
+annotation(152, 1, 248, 'uri', '@uri', '/wd/NYPL.db').
+annotation(153, 1, 249, 'in', '@in', 'menupage_in_NYPL.db').
+annotation(154, 1, 249, 'uri', '@uri', '/wd/NYPL.db').
+annotation(155, 1, 250, 'in', '@in', 'menu_in_NYPL.db').
+annotation(156, 1, 250, 'uri', '@uri', '/wd/NYPL.db').
+annotation(157, 1, 251, 'param', '@param', 'FD_IC_Check_Reference').
+annotation(158, 1, 252, 'param', '@param', 'ID_check_reference').
+annotation(159, 1, 253, 'out', '@out', 'Dish_New').
+annotation(160, 1, 253, 'uri', '@uri', '/wd/dish_new.csv').
+annotation(161, 1, 254, 'out', '@out', 'MenuItem_New').
+annotation(162, 1, 254, 'uri', '@uri', '/wd/menuitem_new.csv').
+annotation(163, 1, 255, 'out', '@out', 'MenuPage_New').
+annotation(164, 1, 255, 'uri', '@uri', '/wd/menupage_new.csv').
+annotation(165, 1, 256, 'out', '@out', 'Menu_New').
+annotation(166, 1, 256, 'uri', '@uri', '/wd/menu_new.csv').
+annotation(167, 1, 257, 'end', '@end', 'NewDataGeneration').
+annotation(168, 1, 304, 'out', '@out', 'Dish_Output').
+annotation(169, 1, 304, 'uri', '@uri', '/wd/dish_id_check.csv').
+annotation(170, 1, 305, 'out', '@out', 'MenuItem_Output').
+annotation(171, 1, 305, 'uri', '@uri', '/wd/menuitem_id_check.csv').
+annotation(172, 1, 306, 'out', '@out', 'MenuPage_Output').
+annotation(173, 1, 306, 'uri', '@uri', '/wd/menupage_id_check.csv').
+annotation(174, 1, 307, 'out', '@out', 'Menu_Output').
+annotation(175, 1, 307, 'uri', '@uri', '/wd/menu_id_check.csv').
+annotation(176, 1, 308, 'out', '@out', 'Dish_CLD.pdf').
+annotation(177, 1, 308, 'uri', '@uri', '/wd/Dish_CLD.pdf').
+annotation(178, 1, 309, 'out', '@out', 'MenuItem_CLD.pdf').
+annotation(179, 1, 309, 'uri', '@uri', '/wd/MenuItem_CLD.pdf').
+annotation(180, 1, 310, 'out', '@out', 'MenuPage_CLD.pdf').
+annotation(181, 1, 310, 'uri', '@uri', '/wd/MenuPage_CLD.pdf').
+annotation(182, 1, 311, 'out', '@out', 'Menu_CLD.pdf').
+annotation(183, 1, 311, 'uri', '@uri', '/wd/Menu_CLD.pdf').
+annotation(184, 1, 312, 'out', '@out', 'Dish_FD_IC_Output').
+annotation(185, 1, 312, 'uri', '@uri', '/wd/dish_fd_ic.csv').
+annotation(186, 1, 313, 'out', '@out', 'MenuItem_FD_IC_Output').
+annotation(187, 1, 313, 'uri', '@uri', '/wd/menuitem_fd_ic.csv').
+annotation(188, 1, 314, 'out', '@out', 'MenuPage_FD_IC_Output').
+annotation(189, 1, 314, 'uri', '@uri', '/wd/menupage_fd_ic.csv').
+annotation(190, 1, 315, 'out', '@out', 'Menu_FD_IC_Output').
+annotation(191, 1, 315, 'uri', '@uri', '/wd/menu_fd_ic.csv').
+annotation(192, 1, 316, 'out', '@out', 'Dish_New').
+annotation(193, 1, 316, 'uri', '@uri', '/wd/New_Data/dish_new.csv').
+annotation(194, 1, 317, 'out', '@out', 'MenuItem_New').
+annotation(195, 1, 317, 'uri', '@uri', '/wd/New_Data/menuitem_new.csv').
+annotation(196, 1, 318, 'out', '@out', 'MenuPage_New').
+annotation(197, 1, 318, 'uri', '@uri', '/wd/New_Data/menupage_new.csv').
+annotation(198, 1, 319, 'out', '@out', 'Menu_New').
+annotation(199, 1, 319, 'uri', '@uri', '/wd/New_Data/menu_new.csv').
+annotation(200, 1, 324, 'end', '@end', 'Data_Cleaning_Project').
+
+% FACT: annotation_qualifies(qualifying_annotation_id, primary_annotation_id).
+annotation_qualifies(2, 1).
+annotation_qualifies(4, 3).
+annotation_qualifies(6, 5).
+annotation_qualifies(8, 7).
+annotation_qualifies(10, 9).
+annotation_qualifies(12, 11).
+annotation_qualifies(14, 13).
+annotation_qualifies(17, 16).
+annotation_qualifies(19, 18).
+annotation_qualifies(22, 21).
+annotation_qualifies(24, 23).
+annotation_qualifies(27, 26).
+annotation_qualifies(29, 28).
+annotation_qualifies(32, 31).
+annotation_qualifies(34, 33).
+annotation_qualifies(37, 36).
+annotation_qualifies(39, 38).
+annotation_qualifies(42, 41).
+annotation_qualifies(44, 43).
+annotation_qualifies(47, 46).
+annotation_qualifies(49, 48).
+annotation_qualifies(52, 51).
+annotation_qualifies(54, 53).
+annotation_qualifies(56, 55).
+annotation_qualifies(58, 57).
+annotation_qualifies(60, 59).
+annotation_qualifies(62, 61).
+annotation_qualifies(64, 63).
+annotation_qualifies(66, 65).
+annotation_qualifies(68, 67).
+annotation_qualifies(71, 70).
+annotation_qualifies(73, 72).
+annotation_qualifies(75, 74).
+annotation_qualifies(77, 76).
+annotation_qualifies(79, 78).
+annotation_qualifies(82, 81).
+annotation_qualifies(84, 83).
+annotation_qualifies(86, 85).
+annotation_qualifies(88, 87).
+annotation_qualifies(91, 90).
+annotation_qualifies(93, 92).
+annotation_qualifies(95, 94).
+annotation_qualifies(97, 96).
+annotation_qualifies(99, 98).
+annotation_qualifies(102, 101).
+annotation_qualifies(104, 103).
+annotation_qualifies(106, 105).
+annotation_qualifies(108, 107).
+annotation_qualifies(112, 111).
+annotation_qualifies(114, 113).
+annotation_qualifies(117, 116).
+annotation_qualifies(121, 120).
+annotation_qualifies(123, 122).
+annotation_qualifies(126, 125).
+annotation_qualifies(130, 129).
+annotation_qualifies(132, 131).
+annotation_qualifies(135, 134).
+annotation_qualifies(139, 138).
+annotation_qualifies(141, 140).
+annotation_qualifies(144, 143).
+annotation_qualifies(148, 147).
+annotation_qualifies(150, 149).
+annotation_qualifies(152, 151).
+annotation_qualifies(154, 153).
+annotation_qualifies(156, 155).
+annotation_qualifies(160, 159).
+annotation_qualifies(162, 161).
+annotation_qualifies(164, 163).
+annotation_qualifies(166, 165).
+annotation_qualifies(169, 168).
+annotation_qualifies(171, 170).
+annotation_qualifies(173, 172).
+annotation_qualifies(175, 174).
+annotation_qualifies(177, 176).
+annotation_qualifies(179, 178).
+annotation_qualifies(181, 180).
+annotation_qualifies(183, 182).
+annotation_qualifies(185, 184).
+annotation_qualifies(187, 186).
+annotation_qualifies(189, 188).
+annotation_qualifies(191, 190).
+annotation_qualifies(193, 192).
+annotation_qualifies(195, 194).
+annotation_qualifies(197, 196).
+annotation_qualifies(199, 198).
